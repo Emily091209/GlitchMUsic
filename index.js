@@ -265,4 +265,4 @@ distube.on("searchNoResult", (message, query) => {
     message.channel.send("Song not found")
 })
 
-client.login("OTU0ODAzMjM2OTcwMzA3NjI0.YjYbzw.G9IOdDJ9JRKSo0eERzIhcb2rWgs")
+client.login(process.env.token)
