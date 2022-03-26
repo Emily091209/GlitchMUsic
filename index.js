@@ -273,7 +273,7 @@ client.on("messageCreate", message => {
     .setColor("BLURPLE")
     .setTitle("<:GlitchMusic:957242404073783326> GlitchMusic")
     .addField("> Creator:", "<@Emi09>", true)
-    .addField("> Bot name:", `${client.user.tag.toString()}`, true)
+    .addField("> Bot name:", `GlithMusic`, true)
     .addField("> Discord.js version:", "v13.6.0", true)
     .addField("> Number of commands:", "8 commands", false)
     message.channel.send({embeds:[embed]})
