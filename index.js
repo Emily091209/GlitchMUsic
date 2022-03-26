@@ -248,6 +248,7 @@ distube.on("addSong", (queue, song) => {
     let embed = new Discord.MessageEmbed()
         .setTitle("Song added")
         .addField("Song", song.name)
+        .setColor("BLUE")
 
     queue.textChannel.send({ embeds: [embed] })
 })
@@ -257,12 +258,23 @@ distube.on("playSong", (queue, song) => {
         .setTitle("Playing song...")
         .addField("Song", song.name)
         .addField("Requested by", song.user.toString())
+        .setColor("BLURPLE")
 
     queue.textChannel.send({ embeds: [embed] })
 })
 
 distube.on("searchNoResult", (message, query) => {
     message.channel.send("Song not found")
+})
+
+client.on("messageCreate", message => {
+    if(message.content.toLowerCase() == "%help")
+    var embed = new Discord.MessageEmbed()
+    .setColor("BLURPLE")
+    .setTitle("<:GlitchMusic:957242404073783326> GlitchMusic")
+    .addField("Creator:", "<@Emi09>", true)
+    .addField("Bot name:", "<@GlitchMusic", true)
+    .addField("Discord.js version:", "v13.6.0")
 })
 
 client.login(process.env.token)
