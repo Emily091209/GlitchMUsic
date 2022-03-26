@@ -248,7 +248,7 @@ distube.on("addSong", (queue, song) => {
     let embed = new Discord.MessageEmbed()
         .setTitle("Song added")
         .addField("Song", song.name)
-        .setColor("BLUE")
+        .setColor("PURPLE")
 
     queue.textChannel.send({ embeds: [embed] })
 })
@@ -258,7 +258,7 @@ distube.on("playSong", (queue, song) => {
         .setTitle("Playing song...")
         .addField("Song", song.name)
         .addField("Requested by", song.user.toString())
-        .setColor("BLURPLE")
+        .setColor("PURPLE")
 
     queue.textChannel.send({ embeds: [embed] })
 })
@@ -270,9 +270,10 @@ distube.on("searchNoResult", (message, query) => {
 client.on("messageCreate", message => {
     if (message.content.toLowerCase() == "&help") {
         const embed = new Discord.MessageEmbed()
-            .setTitle(":GlitchMusic:957242404073783326> GlitchMusic") 
-            .setColor("BLURPLE") 
-            .addField("> Creator:", "`Emi09#3869`", true) 
+            .setTitle("<:GlitchMusic:957242404073783326> GlitchMusic") 
+            .setColor("PURPLE") 
+            .addField("> Creator:", "`Emi09#3869`", true)
+            .addField("> Servers:", `${client.guilds.cache.size}`, true) 
             .setTimestamp() 
         message.channel.send({embeds: [embed]})
     }
