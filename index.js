@@ -268,7 +268,7 @@ distube.on("searchNoResult", (message, query) => {
 })
 
 client.on("messageCreate", message => {
-    if(message.content.toLowerCase() == "%help")
+    if(message.content.toLowerCase() == "&help")
     var embed = new Discord.MessageEmbed()
     .setColor("BLURPLE")
     .setTitle("<:GlitchMusic:957242404073783326> GlitchMusic")
