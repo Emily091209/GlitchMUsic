@@ -275,6 +275,7 @@ client.on("messageCreate", message => {
     .addField("Creator:", "<@Emi09>", true)
     .addField("Bot name:", "<@GlitchMusic", true)
     .addField("Discord.js version:", "v13.6.0")
+    message.channel.send({embeds:[embed]})
 })
 
 client.login(process.env.token)
