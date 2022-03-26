@@ -272,9 +272,10 @@ client.on("messageCreate", message => {
     var embed = new Discord.MessageEmbed()
     .setColor("BLURPLE")
     .setTitle("<:GlitchMusic:957242404073783326> GlitchMusic")
-    .addField("Creator:", "<@Emi09>", true)
-    .addField("Bot name:", "<@GlitchMusic", true)
-    .addField("Discord.js version:", "v13.6.0")
+    .addField(">Creator:", "<@Emi09>", true)
+    .addField(">Bot name:", "<@GlitchMusic>", true)
+    .addField(">Discord.js version:", "v13.6.0", true)
+    .addField(">Number of commands:", "8 commands", false)
     message.channel.send({embeds:[embed]})
 })
 
