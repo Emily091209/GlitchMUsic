@@ -268,15 +268,14 @@ distube.on("searchNoResult", (message, query) => {
 })
 
 client.on("messageCreate", message => {
-    if(message.content.toLowerCase() == "&help")
-    var embed = new Discord.MessageEmbed()
-    .setColor("BLURPLE")
-    .setTitle("<:GlitchMusic:957242404073783326> GlitchMusic")
-    .addField("> Creator:", "<@Emi09>", true)
-    .addField("> Bot name:", `GlithMusic`, true)
-    .addField("> Discord.js version:", "v13.6.0", true)
-    .addField("> Number of commands:", "8 commands", false)
-    message.channel.send({embeds:[embed]})
+    if (message.content.toLowerCase() == "&help") {
+        const embed = new Discord.MessageEmbed()
+            .setTitle(":GlitchMusic:957242404073783326> GlitchMusic") 
+            .setColor("BLURPLE") 
+            .addField("> Creator:", "`Emi09#3869`", true) 
+            .setTimestamp() 
+        message.channel.send({embeds: [embed]})
+    }
 })
 
 client.login(process.env.token)
