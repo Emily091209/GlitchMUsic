@@ -273,7 +273,7 @@ client.on("messageCreate", message => {
             .setTitle("<:GlitchMusic:957242404073783326> GlitchMusic") 
             .setColor("PURPLE") 
             .addField("> Creator:", "`Emi09#3869`", true)
-            .addField("> Servers:", `${client.guilds.cache.size}`, true) 
+            .addField(`> Servers: ${client.guilds.cache.size}`, `servers`, true) 
             .setTimestamp() 
         message.channel.send({embeds: [embed]})
     }
