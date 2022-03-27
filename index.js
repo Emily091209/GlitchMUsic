@@ -268,12 +268,14 @@ distube.on("searchNoResult", (message, query) => {
 })
 
 client.on("messageCreate", message => {
-    if (message.content.toLowerCase() == "&help") {
+    if (message.content.toLowerCase() == "&botinfo") {
         const embed = new Discord.MessageEmbed()
             .setTitle("<:GlitchMusic:957242404073783326> GlitchMusic") 
             .setColor("PURPLE") 
             .addField("> Creator:", "`Emi09#3869`", true)
-            .addField(`> Servers: ${client.guilds.cache.size}`, `servers`, true) 
+            .addField(`> Servers: ${client.guilds.cache.size}`, "`Servers`", true) 
+            .addField("> Node.js version:", "`V17.7.1`", false)
+            .addField("> Discord.js version:", "`V13.6.0`", true)
             .setTimestamp() 
         message.channel.send({embeds: [embed]})
     }
