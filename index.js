@@ -273,10 +273,9 @@ client.on("messageCreate", message => {
             .setTitle("<:GlitchMusic:957242404073783326> GlitchMusic") 
             .setColor("PURPLE") 
             .addField("> Creator:", "`Emi09#3869`", true)
-            .addField(`> Servers: ${client.guilds.cache.size}`, "`Servers`", true) 
-            .addField("> Node.js version:", "`V17.7.1`", false)
-            .addField("> Discord.js version:", "`V13.6.0`", true)
-            .setTimestamp() 
+            .addField(`> Servers: ${client.guilds.cache.size}`, "`Servers`", false) 
+            .addField("> Node.js version:", "`V17.7.1`", true)
+            .addField("> Discord.js version:", "`V13.6.0`", true) 
         message.channel.send({embeds: [embed]})
     }
 })
