@@ -275,7 +275,8 @@ client.on("messageCreate", message => {
             .addField("> 👥 Creator:", "> `Emi09#3869`", true)
             .addField(`> 🏙️ Servers: ${client.guilds.cache.size}`, "> `Servers`", true) 
             .addField("> ⚙️ Node.js version:", "> `V17.7.1`", true)
-            .addField("> ⚙️ Discord.js version:", "> `V13.6.0`", true) 
+            .addField("> ⚙️ Discord.js version:", "> `V13.6.0`", true)
+            .addField("> 🧑‍💻 Total commands: 8", "> `Commands`", true) 
         message.channel.send({embeds: [embed]})
     }
 })
