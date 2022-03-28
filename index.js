@@ -202,6 +202,7 @@ client.on("messageCreate", message => {
     }
 
     if (message.content.toLowerCase == "&previous") {
+    if (message.content.toLowerCase() == "&previous") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
             return message.channel.send("Devi essere in un canale vocale")
@@ -272,60 +273,67 @@ client.on("messageCreate", message => {
         const embed = new Discord.MessageEmbed()
             .setTitle("<:GlitchMusic:957242404073783326> GlitchMusic") 
             .setColor("PURPLE") 
-            .addField("> 👥 Creator:", "> `Emi09#3869`", true)
-            .addField(`> 🏙️ Servers: ${client.guilds.cache.size}`, "> `Servers`", true) 
-            .addField("> ⚙️ Node.js version:", "> `V17.7.1`", true)
-            .addField("> ⚙️ Discord.js version:", "> `V13.6.0`", true)
-            .addField("> 🧑‍💻 Total commands: 8", "> `Commands`", true) 
+            .addField("👥 Creator:", "> `Emi09#3869`", true)
+            .addField(`🏙️ Servers: ${client.guilds.cache.size}`, "> `Servers`", true) 
+            .addField("⚙️ Node.js version:", "> `V17.7.1`", true)
+            .addField("⚙️ Discord.js version:", "> `V13.6.0`", true)
+            .addField("🧑‍💻 Total commands: 9", "> `Commands`", true) 
         message.channel.send({embeds: [embed]})
     }
 })
 
 client.on("messageCreate", message => {
-    if (message.content.toLowerCase() == "&help") {
+    if (message.content.toLowerCase() === "help") {
+        
+        const embedHelp1 = new Discord.MessageEmbed()
+        .setTitle("<:GlitchMusic:957242404073783326> GlitchMusic")
+        .setDescription("Music commands:")
+        .addField("Play", "Plays a song", true)
+        .addField("Stop", "Stops the queue", true)
+        .addField("Pause", "Pauses the current song", false)
+        .addField("Resume", "Rusumes the current song", false)
+        .addField("Queue", "Shows the current queue")
+     
+ 
+        const embedHelp2 = new Discord.MessageEmbed()
+        .setTitle("Tutti i comandi di GlitchBot")
+        .setDescription("General:")
+        .addField("Invita", "Invia il link del bot", true)
+        .addField("Suggestion", "Invia una suggestion", true)
 
-        let button1 = new Discord.MessageButton()
-            .setLabel("Indietro")
-            .setStyle("PRIMARY")
-            .setCustomId("indietro")
-
-        let button2 = new Discord.MessageButton()
-            .setLabel("Avanti")
-            .setStyle("PRIMARY")
-            .setCustomId("avanti")
+        let bottone = new Discord.MessageButton()
+        .setLabel("◀")
+        .setStyle("PRIMARY")
+        .setCustomId("dietro")
+ 
+        let bottone2 = new Discord.MessageButton()
+        .setLabel("▶")
+        .setStyle("PRIMARY")
+        .setCustomId("avanti")
 
         let row = new Discord.MessageActionRow()
-            .addComponents(button1)
-            .addComponents(button2)
+        .addComponents(bottone)
+        .addComponents(bottone2)
+ 
+        message.channel.send({embeds: [embedHelp1], components: [row]})
+        .then(msg => {
+            const collector = msg.createMessageComponentCollector()
 
-        message.channel.send({ embeds: [embed], components: [row] })
-            .then(msg => {
-                const collector = msg.createMessageComponentCollector()
+            collector.on("collect", i => {
+                i.deferUpdate()
 
-                collector.on("collect", i => {
-                    i.deferUpdate()
+                if(i.user.id != message.author.id) return
 
-                    if (i.user.id != message.author.id) return i.reply({ content: "Questo bottone non è tuo", ephemeral: true })
+                if(i.customId == "dietro") {
+                    msg.edit({embeds:[embedHelp1]})
+                }
 
-
-                    let button1 = new Discord.MessageButton()
-                        .setLabel("Indietro")
-                        .setStyle("PRIMARY")
-                        .setCustomId("indietro")
-
-                    let button2 = new Discord.MessageButton()
-                        .setLabel("Avanti")
-                        .setStyle("PRIMARY")
-                        .setCustomId("avanti")
-
-                    let row = new Discord.MessageActionRow()
-                        .addComponents(button1)
-                        .addComponents(button2)
-
-                    msg.edit({ embeds: [embed], components: [row] })
-                })
+                if(i.customId == "avanti") {
+                    msg.edit({embeds:[embedHelp2]})
+                }
             })
+        })
     }
-})
+ })
 
 client.login(process.env.token)
