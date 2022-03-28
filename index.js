@@ -201,7 +201,6 @@ client.on("messageCreate", message => {
         message.channel.send("Song skipped")
     }
 
-    if (message.content.toLowerCase == "&previous") {
     if (message.content.toLowerCase() == "&previous") {
         const voiceChannel = message.member.voice.channel
         if (!voiceChannel) {
