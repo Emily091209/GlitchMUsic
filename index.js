@@ -335,4 +335,14 @@ client.on("messageCreate", message => {
     }
  })
 
+client.on("messageCreate", message => {
+    if(message.content.toLowerCase() === "&test") {
+
+      const embed = new Discord.MessageEmbed()
+      .setTitle("TEST")
+      .setDescription("Bot online")
+     message.channel.send({embeds:[embed]})
+    }
+})
+
 client.login(process.env.token)
