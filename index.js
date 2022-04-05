@@ -8,6 +8,7 @@ client.on("ready", () => {
 })
 
 const { DisTube } = require("distube")
+const { SpotifyPlugin } = require("@distube/spotify")
 
 const distube = new DisTube(client, {
     youtubeDL: false,
