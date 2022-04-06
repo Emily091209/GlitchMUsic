@@ -283,23 +283,23 @@ client.on("messageCreate", message => {
 })
 
 client.on("messageCreate", message => {
-    if (message.content.toLowerCase() === "help") {
+    if (message.content.toLowerCase() === "&help") {
         
         const embedHelp1 = new Discord.MessageEmbed()
         .setTitle("<:GlitchMusic:957242404073783326> GlitchMusic")
         .setDescription("Music commands:")
-        .addField("Play", "Plays a song", true)
-        .addField("Stop", "Stops the queue", true)
-        .addField("Pause", "Pauses the current song", false)
-        .addField("Resume", "Rusumes the current song", false)
-        .addField("Queue", "Shows the current queue")
+        .addField("Play", "> Plays a song", true)
+        .addField("Stop", "> Stops the queue", true)
+        .addField("Pause", "> Pauses the current song", false)
+        .addField("Resume", "> Rusumes the current song", false)
+        .addField("Queue", "> Shows the current queue")
      
  
         const embedHelp2 = new Discord.MessageEmbed()
         .setTitle("Tutti i comandi di GlitchBot")
         .setDescription("General:")
-        .addField("Invita", "Invia il link del bot", true)
-        .addField("Suggestion", "Invia una suggestion", true)
+        .addField("Invita", "> Invia il link del bot", true)
+        .addField("Suggestion", "> Invia una suggestion", true)
 
         let bottone = new Discord.MessageButton()
         .setLabel("◀")
